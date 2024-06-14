@@ -33,6 +33,7 @@ export default function SelectedContact({
         <th>Company</th>
       </thead>
       <tbody>
+        {contact && ( // Check if contact is not null
         <tr>
           <td>{contact.name}</td>
           <td>{contact.username}</td>
@@ -40,8 +41,9 @@ export default function SelectedContact({
           <td>{contact.address.city}</td>
           <td>{contact.phone}</td>
           <td>{contact.website}</td>
-          <td>{contact.company}</td>
+          <td>{contact.company.name}</td>
         </tr>
+        )}
       </tbody>
     </table>
   );
