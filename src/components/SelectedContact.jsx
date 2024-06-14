@@ -22,29 +22,18 @@ export default function SelectedContact({
     fetchContact();
   }, [selectedContactId]);
   return (
-    <table>
-      <thead>
-        <th>Name</th>
-        <th>Username</th>
-        <th>Email</th>
-        <th>City</th>
-        <th>Phone</th>
-        <th>Website</th>
-        <th>Company</th>
-      </thead>
-      <tbody>
-        {contact && ( // Check if contact is not null
-        <tr>
-          <td>{contact.name}</td>
-          <td>{contact.username}</td>
-          <td>{contact.email}</td>
-          <td>{contact.address.city}</td>
-          <td>{contact.phone}</td>
-          <td>{contact.website}</td>
-          <td>{contact.company.name}</td>
-        </tr>
-        )}
-      </tbody>
-    </table>
+    <>
+      {contact && ( // Check if contact is not null
+        <div>
+          <h1>{contact.name}</h1>
+          <p>Username: {contact.username}</p>
+          <p>Email: {contact.email}</p>
+          <p>City: {contact.address.city}</p>
+          <p>Phone: {contact.phone}</p>
+          <p>Website: {contact.website}</p>
+          <p>Company: {contact.company.name}</p>
+        </div>
+      )}
+    </>
   );
 }
