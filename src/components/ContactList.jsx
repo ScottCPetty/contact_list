@@ -8,7 +8,7 @@ const dummyContacts = [
   { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-export default function ContactList() {
+export default function ContactList({ setSelectedContactId }) {
   const [contacts, setContacts] = useState(dummyContacts);
   useEffect(() => {
     async function fetchContacts() {
