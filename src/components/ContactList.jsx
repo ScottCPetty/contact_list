@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactRow from "./ContactRow";
 
 const dummyContacts = [
@@ -10,6 +10,21 @@ const dummyContacts = [
 
 export default function ContactList() {
   const [contacts, setContacts] = useState(dummyContacts);
+  useEffect(() => {
+    async function fetchContacts() {
+      try {
+        const response = await fetch(
+          "https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
+        );
+        const data = await response.json();
+        // console.log(data)
+        setContacts(data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchContacts();
+  }, []);
   console.log("Contacts: ", contacts);
   return (
     <table>
